@@ -5,8 +5,10 @@ component {
 	//  https://mvnrepository.com/artifact/org.json/json/20250107
 
 	
-	variables.ds = application.ds;
-	variables.exceptionsLib = application.exceptionsLib;
+	variables.ds = application.ds;  // Datasource.  You will only need this is you want to log.  Check the function at the bottom for logging.
+       
+	//variables.exceptionsLib = application.exceptionsLib;
+
 	variables.xmlToJsonObj = createobject("java", "org.json.XML");
 	
 	if( application.mode eq "dev" || application.mode eq "stage") {
@@ -664,8 +666,9 @@ component {
 			
 		}
 		catch( any e ) {
-			variables.exceptionsLib.handleException(exception=e);
-			cfrethrow();
+                        //  Add you own handling here.  
+			//variables.exceptionsLib.handleException(exception=e);
+			//cfrethrow();
 		}
 	}
 
